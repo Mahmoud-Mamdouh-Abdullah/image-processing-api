@@ -1,7 +1,8 @@
 import express from 'express';
 import AppMiddlewareInterface from './Interface/middleware.interface';
 import RouterInterface from './Interface/router.interface';
-
+import fs from 'fs';
+import { resolve } from 'path';
 export class Server {
     private readonly _server = express();
 
@@ -24,6 +25,10 @@ export class Server {
     }
 
     listen(port: number) {
+        const thumbFolderPath = resolve(`${__dirname}/../../images/thumb`);
+        if (!fs.existsSync(thumbFolderPath)) {
+            fs.mkdirSync(thumbFolderPath);
+        }
         this._server.listen(port, () => {
             console.log(`server running....`);
             console.log(`server listen on port ${port}`);
