@@ -9,7 +9,7 @@
         "test": "npm run build && npm run jasmine",
         "start": "node \"./dist/app.js\"",
         "dev": "tsc-watch --onSuccess \"nodemon ./dist/app.js\"",
-        "lint": "eslint \"src/**\" --fix",
+        "lint": "eslint . --ext .ts",
         "prettier": "prettier --write ."
     },
     "author": "",
