@@ -6,7 +6,7 @@ const resizeImage = async (
     height: number,
     fullPath: string,
     thumbPath: string
-) => {
+) : Promise<Buffer> => {
     const data: Buffer | null = await fs.readFile(fullPath);
     if (!data) {
         return Promise.reject();
