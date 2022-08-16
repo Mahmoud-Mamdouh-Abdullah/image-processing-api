@@ -1,8 +1,8 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 import AppMiddlewareInterface from '../core/Interface/middleware.interface';
 
 class LogMiddleware implements AppMiddlewareInterface {
-    getMiddleware() {
+    getMiddleware(): RequestHandler {
         return (req: Request, res: Response, next: NextFunction) => {
             console.log(req.query);
             next();

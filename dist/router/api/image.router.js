@@ -28,7 +28,7 @@ class ImageRouter {
             const filename = req.query.filename;
             const width = parseInt((_a = req.query.width) === null || _a === void 0 ? void 0 : _a.toString());
             const height = parseInt((_b = req.query.height) === null || _b === void 0 ? void 0 : _b.toString());
-            if (!filename || !width || !height) {
+            if (!filename || !width || !height || isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
                 return res.status(400).send({
                     error: 'invalide or missing data'
                 });

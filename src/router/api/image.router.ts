@@ -21,7 +21,15 @@ export class ImageRouter implements RouterInterface {
                 req.query.height?.toString() as string
             );
 
-            if (!filename || !width || !height) {
+            if (
+                !filename ||
+                !width ||
+                !height ||
+                isNaN(width) ||
+                isNaN(height) ||
+                width <= 0 ||
+                height <= 0
+            ) {
                 return res.status(400).send({
                     error: 'invalide or missing data'
                 });

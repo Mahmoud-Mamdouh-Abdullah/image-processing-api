@@ -1,6 +1,7 @@
+import { RequestHandler } from "express";
+
 interface AppMiddlewareInterface {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getMiddleware(): any;
+    getMiddleware(): RequestHandler;
 }
 
 export default AppMiddlewareInterface;
